@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBAbLY_l_F4QvV4U26hCvaDrVyWeWqzVpM',
-    appId: '1:135456339387:android:3a32c1fca49dd7bb38809e',
+    appId: '1:135456339387:android:b32efc3104e9c68a38809e',
     messagingSenderId: '135456339387',
     projectId: 'lostapp-5b389',
     storageBucket: 'lostapp-5b389.appspot.com',
@@ -59,7 +59,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCbEeoFiBv2MS8cUlbWwIkxdjG9VRFgxco',
-    appId: '1:135456339387:ios:358642e14cbfa96a38809e',
+    appId: '1:135456339387:ios:8b162e2128883d7a38809e',
     messagingSenderId: '135456339387',
     projectId: 'lostapp-5b389',
     storageBucket: 'lostapp-5b389.appspot.com',

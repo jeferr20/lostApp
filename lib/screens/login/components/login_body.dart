@@ -101,7 +101,7 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Email",
+                              "Correo",
                               style: GoogleFonts.poppins(
                                 fontSize: 18,
                                 color: HexColor("#8d8d8d"),
@@ -133,7 +133,7 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                               height: 10,
                             ),
                             Text(
-                              "Password",
+                              "Contraseña",
                               style: GoogleFonts.poppins(
                                 fontSize: 18,
                                 color: HexColor("#8d8d8d"),
@@ -153,31 +153,29 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                             ),
                             MyButton(
                               onPressed: signUserIn,
-                              buttonText: 'Submit',
+                              buttonText: 'Ingresar',
                             ),
                             const SizedBox(
                               height: 12,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
-                              child: Row(
-                                children: [
-                                  Text("Don't have an account?",
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("¿Aún no estas registrado?",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 13,
+                                      color: HexColor("#8d8d8d"),
+                                    )),
+                                TextButton(
+                                    child: Text(
+                                      "Registrate aqui",
                                       style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        color: HexColor("#8d8d8d"),
-                                      )),
-                                  TextButton(
-                                      child: Text(
-                                        "Sign Up",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 15,
-                                          color: HexColor("#87CEEB"),
-                                        ),
+                                        fontSize: 14,
+                                        color: HexColor("#87CEEB"),
                                       ),
-                                      onPressed: () => {}),
-                                ],
-                              ),
+                                    ),
+                                    onPressed: () => {}),
+                              ],
                             ),
                           ]),
                     ),

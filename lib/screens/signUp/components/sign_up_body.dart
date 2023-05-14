@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lost_app/components/button.dart';
-import 'package:lost_app/components/textField.dart';
 import 'package:get/get.dart';
 import 'package:lost_app/controllers/sign_up_controller.dart';
 

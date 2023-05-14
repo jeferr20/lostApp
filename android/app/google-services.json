@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:135456339387:android:3a32c1fca49dd7bb38809e",
+        "mobilesdk_app_id": "1:135456339387:android:b32efc3104e9c68a38809e",
         "android_client_info": {
           "package_name": "com.example.lost_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "135456339387-18djvrgkm5d6ujsj7tl4830duv4i0421.apps.googleusercontent.com",
+          "client_id": "135456339387-gjtfvkp2edlt0n6brisv8ev479svbbl0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +29,13 @@
             {
               "client_id": "135456339387-18djvrgkm5d6ujsj7tl4830duv4i0421.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "135456339387-p54pnil1q20mf40lbmvn5hj8qg1hgsik.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lostApp"
+              }
             }
           ]
         }
