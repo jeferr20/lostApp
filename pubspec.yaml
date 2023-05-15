@@ -43,6 +43,7 @@ dependencies:
   firebase_auth: ^4.6.0
   email_validator: ^2.1.17
   firebase_storage: ^11.2.0
+  custom_signin_buttons: ^1.0.2
 
 dev_dependencies:
   flutter_test:

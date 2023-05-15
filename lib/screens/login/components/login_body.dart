@@ -62,15 +62,15 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
       //resizeToAvoidBottomInset: false,
       backgroundColor: HexColor("#ffa500"),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         //reverse: true,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/lostPetLogoWhite.png',
-                width: w, height: h * 0.30),
+                width: w, height: h * 0.25),
             Container(
-              height: 530,
+              height: 580,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: HexColor("#ffffff"),
@@ -92,11 +92,8 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                         color: HexColor("#4f4f4f"),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 0, 0, 20),
+                      padding: EdgeInsets.fromLTRB(15, 15, 0, 20),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -108,7 +105,7 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                               ),
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 5,
                             ),
                             MyTextField(
                               onChanged: (() {
@@ -124,13 +121,10 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                               child: Text(
                                 _errorMessage,
                                 style: GoogleFonts.poppins(
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   color: Colors.red,
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 10,
                             ),
                             Text(
                               "Contraseña",
@@ -140,7 +134,7 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                               ),
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 5,
                             ),
                             MyTextField(
                               controller: passwordController,
@@ -148,15 +142,26 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                               obscureText: true,
                               prefixIcon: const Icon(Icons.lock_outline),
                             ),
-                            const SizedBox(
-                              height: 20,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Olvidé mi contraseña',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 14,
+                                        color: HexColor("#ffa500"),
+                                      ),
+                                    ))
+                              ],
                             ),
                             MyButton(
                               onPressed: signUserIn,
-                              buttonText: 'Ingresar',
+                              buttonText: 'INGRESAR',
                             ),
-                            const SizedBox(
-                              height: 12,
+                            GoogleButton(
+                              onPressed: () {},
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +176,7 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                                       "Registrate aqui",
                                       style: GoogleFonts.poppins(
                                         fontSize: 14,
-                                        color: HexColor("#87CEEB"),
+                                        color: HexColor("#ffa500"),
                                       ),
                                     ),
                                     onPressed: () => {}),

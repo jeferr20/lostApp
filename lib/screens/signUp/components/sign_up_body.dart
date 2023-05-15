@@ -19,6 +19,7 @@ class _SignUpBodyScreenState extends State<SignUpBodyScreen> {
   final nameController = TextEditingController().obs;
   final cellphoneController = TextEditingController().obs;
   SignUpController signUpController = Get.put(SignUpController());
+  // ignore: unused_field
   String _errorMessage = "";
 
   void validateEmail(String val) {
