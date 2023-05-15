@@ -1,21 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:lost_app/screens/homePage/home_Page.dart';
-import 'package:lost_app/screens/login/login.dart';
+import 'package:lost_app/auth/auth_page.dart';
+import 'package:lost_app/pages/home_page.dart';
 
-class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder(
+      body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return const HomeScreen();
+            return const HomePage();
           } else {
-            return const LoginScreen();
+            return const AuthPage();
           }
         },
       ),

@@ -5,25 +5,31 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lost_app/components/button.dart';
 import 'package:lost_app/components/textField.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
 
-class LoginbodyScreen extends StatefulWidget {
-  const LoginbodyScreen({super.key});
+class LoginPage extends StatefulWidget {
+  final VoidCallback mostrarRegisterPage;
+  const LoginPage({super.key, required this.mostrarRegisterPage});
 
   @override
-  State<LoginbodyScreen> createState() => _LoginbodyScreenState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginbodyScreenState extends State<LoginbodyScreen> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
-  void signUserIn() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-    } on FirebaseAuthException catch (e) {
-      showErrorMessage(e.code);
-    }
+  Future signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim());
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   void showErrorMessage(String message) {
@@ -109,9 +115,9 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                             ),
                             MyTextField(
                               onChanged: (() {
-                                validateEmail(emailController.text);
+                                validateEmail(_emailController.text);
                               }),
-                              controller: emailController,
+                              controller: _emailController,
                               hintText: "hola@gmail.com",
                               obscureText: false,
                               prefixIcon: const Icon(Icons.mail_outline),
@@ -137,7 +143,7 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                               height: 5,
                             ),
                             MyTextField(
-                              controller: passwordController,
+                              controller: _passwordController,
                               hintText: "**************",
                               obscureText: true,
                               prefixIcon: const Icon(Icons.lock_outline),
@@ -172,14 +178,15 @@ class _LoginbodyScreenState extends State<LoginbodyScreen> {
                                       color: HexColor("#8d8d8d"),
                                     )),
                                 TextButton(
-                                    child: Text(
-                                      "Registrate aqui",
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        color: HexColor("#ffa500"),
-                                      ),
+                                  child: Text(
+                                    "Registrate aqui",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      color: HexColor("#ffa500"),
                                     ),
-                                    onPressed: () => {}),
+                                  ),
+                                  onPressed: widget.mostrarRegisterPage,
+                                ),
                               ],
                             ),
                           ]),

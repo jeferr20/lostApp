@@ -2,14 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class HomeScreenBody extends StatefulWidget {
-  const HomeScreenBody({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomeScreenBody> createState() => _HomeScreenBodyState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenBodyState extends State<HomeScreenBody> {
+class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
 
   void signUserOut() {
