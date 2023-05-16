@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lost_app/components/button.dart';
-import 'package:lost_app/components/textField.dart';
+//import 'package:lost_app/components/textField.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool passwordVisible = true;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -64,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
     return Scaffold(
       //resizeToAvoidBottomInset: false,
       backgroundColor: HexColor("#ffa500"),
@@ -99,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 15, 0, 20),
+                      padding: const EdgeInsets.fromLTRB(15, 15, 0, 20),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -113,14 +115,35 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(
                               height: 5,
                             ),
-                            MyTextField(
-                              onChanged: (() {
-                                validateEmail(_emailController.text);
-                              }),
+                            // MyTextField(
+                            //   onChanged: (() {
+                            //     validateEmail(_emailController.text);
+                            //   }),
+                            //   controller: _emailController,
+                            //   hintText: "hola@gmail.com",
+                            //   prefixIcon: const Icon(Icons.mail_outline),
+                            // ),
+                            TextField(
                               controller: _emailController,
-                              hintText: "hola@gmail.com",
+                              cursorColor: HexColor("#4f4f4f"),
                               obscureText: false,
-                              prefixIcon: const Icon(Icons.mail_outline),
+                              decoration: InputDecoration(
+                                hintText: "hola@gmail.com",
+                                fillColor: HexColor("#f0f3f1"),
+                                contentPadding:
+                                    const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                hintStyle: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  color: HexColor("#8d8d8d"),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide.none,
+                                ),
+                                prefixIcon: const Icon(Icons.mail_outline),
+                                prefixIconColor: HexColor("#4f4f4f"),
+                                filled: true,
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
@@ -142,11 +165,44 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(
                               height: 5,
                             ),
-                            MyTextField(
+                            // MyTextField(
+                            //   controller: _passwordController,
+                            //   hintText: "**************",
+                            //   prefixIcon: const Icon(Icons.lock_outline),
+                            // ),
+                            TextField(
                               controller: _passwordController,
-                              hintText: "**************",
-                              obscureText: true,
-                              prefixIcon: const Icon(Icons.lock_outline),
+                              cursorColor: HexColor("#4f4f4f"),
+                              obscureText: passwordVisible,
+                              decoration: InputDecoration(
+                                hintText: "Contraseña",
+                                fillColor: HexColor("#f0f3f1"),
+                                contentPadding:
+                                    const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                hintStyle: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  color: HexColor("#8d8d8d"),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide.none,
+                                ),
+                                prefixIcon: const Icon(Icons.lock_outline),
+                                prefixIconColor: HexColor("#4f4f4f"),
+                                filled: true,
+                                suffixIcon: IconButton(
+                                  color: HexColor("#4f4f4f"),
+                                  icon: Icon(passwordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                  onPressed: () {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
+                                  },
+                                ),
+                                alignLabelWithHint: false,
+                              ),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
